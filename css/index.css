@@ -1,0 +1,16 @@
+.nodetext {
+	font-size: 12px ;
+	font-family: SimSun;
+	fill:#000000;
+}
+
+.linetext {
+	font-size: 12px ;
+	font-family: SimSun;
+	fill:#0000FF;
+	fill-opacity:0.0;
+}
+.point{
+	fill: white;
+	stroke: black;
+}

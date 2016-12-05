@@ -1,16 +1,22 @@
-.nodetext {
-	font-size: 12px ;
-	font-family: SimSun;
-	fill:#000000;
-}
-
-.linetext {
-	font-size: 12px ;
-	font-family: SimSun;
-	fill:#0000FF;
-	fill-opacity:0.0;
+.main-map{
+	width: 600px;
+	height: 600px;
 }
 .point{
 	fill: white;
 	stroke: black;
+}
+.point-text {
+	font-size: 12px ;
+	font-family: SimSun;
+	fill:#000;
+}
+.line{
+	stroke: #ccc;
+}
+.line-text {
+	font-size: 12px ;
+	font-family: SimSun;
+	fill:#0000FF;
+	fill-opacity:0.0;
 }

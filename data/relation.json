@@ -32,42 +32,42 @@
 			"image": "img/person/5.jpg"
 		}
 	],
-	"edges": [
+	"relations": [
 		{
 			"source": 0,
 			"target": 1,
 			"value": 7,
-			"relation": "knows",
+			"text": "knows",
 			"weight": 0.5
 		}, {
 			"source": 0,
 			"target": 2,
 			"value": 9,
-			"relation": "created",
+			"text": "created",
 			"weight": 0.4
 		}, {
 			"source": 0,
 			"target": 3,
 			"value": 8,
-			"relation": "knows",
+			"text": "knows",
 			"weight": 1.0
 		}, {
 			"source": 3,
 			"target": 2,
 			"value": 12,
-			"relation": "created",
+			"text": "created",
 			"weight": 0.4
 		}, {
 			"source": 3,
 			"target": 4,
 			"value": 10,
-			"relation": "created",
+			"text": "created",
 			"weight": 1.0
 		}, {
 			"source": 5,
 			"target": 2,
 			"value": 12,
-			"relation": "created",
+			"text": "created",
 			"weight": 0.2
 		}
 	]

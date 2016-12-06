@@ -1,38 +1,32 @@
 ﻿{
 	"nodes": [
 		{
-			"num": 0,
-			"name": "marko",
-			"age": 29,
-			"image": "img/person/6.jpg"
-		}, {
 			"num": 1,
-			"name": "vadas",
-			"age": 27,
-			"image": "img/person/1.jpg"
+			"name": "marko",
+			"age": 29
 		}, {
 			"num": 2,
-			"name": "lop",
-			"long": "java",
-			"image": "img/person/2.jpg"
+			"name": "vadas",
+			"age": 27
 		}, {
 			"num": 3,
-			"name": "josh",
-			"age": 32,
-			"image": "img/person/3.jpg"
+			"name": "lop",
+			"long": "java"
 		}, {
 			"num": 4,
-			"name": "ripple",
-			"long": "java",
-			"image": "img/person/4.jpg"
+			"name": "josh",
+			"age": 32
 		}, {
 			"num": 5,
+			"name": "ripple",
+			"long": "java"
+		}, {
+			"num": 6,
 			"name": "peter",
-			"age": 35,
-			"image": "img/person/5.jpg"
+			"age": 35
 		}
 	],
-	"relations": [
+	"links": [
 		{
 			"source": 0,
 			"target": 1,
@@ -69,6 +63,39 @@
 			"value": 12,
 			"text": "created",
 			"weight": 0.2
+		}
+	],
+	"attrs": [
+		{
+			"type": "node",
+			"source": 0,
+			"name": "marko",
+			"age": 29
+		}, {
+			"type": "node",
+			"source": 1,
+			"name": "vadas",
+			"age": 27
+		}, {
+			"type": "node",
+			"source": 2,
+			"name": "lop",
+			"long": "java"
+		}, {
+			"type": "node",
+			"source": 3,
+			"name": "josh",
+			"age": 32
+		}, {
+			"type": "node",
+			"source": 4,
+			"name": "ripple",
+			"long": "java"
+		}, {
+			"type": "node",
+			"source": 5,
+			"name": "peter",
+			"age": 35
 		}
 	]
 }

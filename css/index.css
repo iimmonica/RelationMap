@@ -1,22 +1,27 @@
-.main-map{
-	width: 600px;
-	height: 600px;
+body text{
+	font: caption;
 }
-.point{
+.main-chart{
+	width: 800px;
+	height: 750px;
+}
+.node-point{
 	fill: white;
 	stroke: black;
 }
-.point-text {
-	font-size: 12px ;
-	font-family: SimSun;
-	fill:#000;
+.node-text {
+	fill: black;
 }
-.line{
-	stroke: #ccc;
+.node-attr-rect{
+	fill: white;
+	stroke: black;
 }
-.line-text {
-	font-size: 12px ;
-	font-family: SimSun;
-	fill:#0000FF;
-	fill-opacity:0.0;
+.link-line{
+	stroke: black;
+}
+.link-text,.link-value {
+	fill: black;
+}
+.link-text-box{
+	fill: white;
 }

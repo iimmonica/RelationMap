@@ -2,9 +2,9 @@ $(document).ready(function() {
 	var NODE_RADIUS = 26;
 	var SVG_WIDTH = $("#relation_chart").width();
 	var SVG_HEIGHT = $("#relation_chart").height();
-	var FORCE_LINK_DISTANCE_TIMES = 100;
-	var FORCE_LINK_DISTANCE_MOVES = 100;
-	var FORCE_CHARGE = -500;
+	var FORCE_LINK_DISTANCE = 200;
+	var FORCE_CHARGE = -1000;
+	var FORCE_STRENGTH = 0.8;
 	var NODE_TEXT_LENGTH = 9;
 	var TEXT_SIZE = 17;
 	var LINK_TEXT_LENGTH = 50;
@@ -23,39 +23,17 @@ $(document).ready(function() {
 		var text_dx = -20;
 		var text_dy = 20;
 		
-		var nodes = data.nodes.concat(data.attrs);
-		var add_links = [];
-		for(var i = 0; i < data.links.length; i++){
-			data.links[i].weight = data.links[i].weight * FORCE_LINK_DISTANCE_TIMES + FORCE_LINK_DISTANCE_MOVES;
-			data.links[i].strength = 0;
-		}
-		for(var i = 0; i < data.nodes.length; i++){
-			var link = {
-				"source": i,
-				"target": data.links.length + i,
-				"type": "node_attr",
-				"weight": NODE_RADIUS / 2,
-				"strength": 1
-			};
-			add_links.push(link);
-		}
-		var links = data.links.concat(add_links);
-		
 		var force = d3.layout.force()
-			.nodes(nodes)
-			.links(links)
+			.nodes(data.nodes)
+			.links(data.links)
 			.size([SVG_WIDTH, SVG_HEIGHT])
-			.linkDistance(function(d){
-				return d.weight;
-			})
-			.linkStrength(function(d){
-				return d.strength;
-			})
+			.linkDistance(FORCE_LINK_DISTANCE)
+			.linkStrength(FORCE_STRENGTH)
 			.charge(FORCE_CHARGE)
 			.start();
 
 		var link_line = svg.selectAll(".link-line")
-			.data(links)
+			.data(data.links)
 			.enter()
 			.append("line")
 			.attr("class", "link-line");
@@ -102,7 +80,7 @@ $(document).ready(function() {
 				return d.num;
 			});
 			
-/*		var node_attr_text = svg.selectAll(".node-attr")
+		var node_attr_text = svg.selectAll(".node-attr")
 			.data(data.nodes)
 			.enter()
 			.append("text")
@@ -120,18 +98,8 @@ $(document).ready(function() {
 					text += "long=" + d.long;
 				}
 				return text;
-			});*/
+			});
 			
-		var node_attr_rect = svg.selectAll(".node-attr-rect")
-			.data(data.attrs)
-			.enter()
-			.append("rect")
-			.attr("width", 100)
-			.attr("height", 50)
-			.attr("rx", ATTR_RECT_RADIUS)
-			.attr("ry", ATTR_RECT_RADIUS)
-			.attr("class", "node-attr-rect")
-			.call(force.drag);
 
 		force.on("tick", function() {
 
@@ -156,20 +124,14 @@ $(document).ready(function() {
 					return d.y - NODE_RADIUS / 2;
 				});
 			
-/*			node_attr_text.attr("x", function(d) {
+			node_attr_text.attr("x", function(d) {
 					return d.x;
 				})
 				.attr("y", function(d) {
 					return d.y
 				});
-*/
 
-			node_attr_rect.attr("x", function(d) {
-					return d.x - 50;
-				})
-				.attr("y", function(d) {
-					return d.y - 25
-				});
+
 
 			link_line.attr("x1", function(d) {
 					return d.source.x - NODE_RADIUS / 2;
